@@ -18,4 +18,15 @@ class MainViewModel {
         10
     }
     
+    func getData() {
+        APICaller.getTrendingMovies { result in
+            switch result {
+            case .success(let movie):
+                print("Trending movie count: \(movie.results.count)")
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
 }
